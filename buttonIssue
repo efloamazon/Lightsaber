@@ -1,0 +1,22 @@
+void ActivateSaber() {
+  for (int led = 0; led <= NUM_LEDS/2; led += ledsPerFrame) {
+      for (int i = 0; i <= led; i++) {
+          leds[i] = CRGB(r, g, b);
+          leds[NUM_LEDS-i] = CRGB(r, g, b);
+      }
+      FastLED.show();
+  }
+  activated = true;
+}
+
+void DeactivateSaber() {
+  for (int led = 0; led <= NUM_LEDS/2; led += ledsPerFrame) {
+      for (int i = 0; i <= led; i++) {
+          leds[NUM_LEDS/2-i] = CRGB(0, 0, 0);
+          leds[NUM_LEDS/2+i] = CRGB(0, 0, 0);
+      }
+      FastLED.show();
+  }
+  activated = false;
+
+}
